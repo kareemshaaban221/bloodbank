@@ -1,7 +1,7 @@
 
 
 $(document).ready(function () {
-
+  // $('#dataTable').DataTable();
   var mySwiper = new Swiper('.swiper-container', {
     slidesPerView: 3,
     loop: true,
@@ -52,6 +52,32 @@ $(document).ready(function () {
 
 });
 
+function filter(e) {
+  console.log(e);
+  var selection = e;
+  var selected;
 
+  [...selection.children].forEach((elem) => {
+    if (elem.selected)
+      selected = elem;
+  });
+
+
+  var table = e.parentElement.nextElementSibling.children[0].getElementsByTagName('tbody')[0];
+  table.childNodes.forEach((elem) => {
+    if (elem.tagName == 'TR') {
+      td = elem.children[1];
+      if (selected.innerText == '--') {
+        elem.style.display = 'table-row';
+      } else {
+        if (! (td.innerHTML + "").includes(selected.innerText)) {
+          elem.style.display = 'none';
+        } else {
+          elem.style.display = 'table-row';
+        }
+      }
+    }
+  });
+}
 
 
