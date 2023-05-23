@@ -29,33 +29,33 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- TODO for all -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a class="nav-link selected" href="index.html"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <!-- TODO for donor -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#requests"><i class="fa fa-ambulance"></i> Requests</a>
+                        <a class="nav-link" href="#reqs"><i class="fa fa-ambulance"></i> Requests</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="requests.html"><i class="fa fa-hand-holding-heart"></i> Donate ?</a>
                     </li> -->
                     <!-- TODO for patient -->
                     <!-- <li class="nav-item">
-                        <a class="nav-link" href="index.html#">
+                        <a class="nav-link" href="#">
                             <i class="fa fa-hands-helping"></i>
                             Request For Donation
                         </a>
                     </li> -->
                     <!-- TODO for visitor -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#bloodtypes"><i class="fa fa-heartbeat"></i> Blood Types</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#bloodtypes"><i class="fa fa-heartbeat"></i> Blood Types</a>
+                    </li> -->
                     <!-- TODO for contact -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#call-us"><i class="fa fa-user"></i> Call Us</a>
+                        <a class="nav-link" href="#call-us"><i class="fa fa-user"></i> Call Us</a>
                     </li>
                     <!-- TODO for all -->
                     <li class="nav-item">
-                        <a class="nav-link selected" href="profile.html"><i class="fa fa-user"></i> Profile</a>
+                        <a class="nav-link" href="profile.html"><i class="fa fa-user"></i> Profile</a>
                     </li>
                 </ul>
                 <button class="btn signup" onclick="window.location.href = 'signup.html';">New Account</button>
@@ -69,57 +69,97 @@
     <div style="height: 110px;"></div>
 
     <!-- Header Start -->
-    <!-- <section id="header">
-        <div class="container"> -->
+    <section id="header">
+        <div class="container">
             <!-- <h1>We are seeking for a better community health.</h1>
             <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellat inventore nemo repudiandae
                 ipsum quos.</h4>
             <button class="btn more" onclick= "window.location.href = 'About-us.html';">More</button> -->
-        <!-- </div>
-    </section> -->
+        </div>
+    </section>
     <!-- Header End -->
 
     <!-- Sub Header Start -->
-    <!-- <section id="sub-header">
+    <section id="sub-header">
         <div class="container">
             <h3>A SINGLE PINT CAN SAVE THREE LIVES, A SINGLE GESTURE CAN CREATE A MILLION SMILES.</h3>
         </div>
-    </section> -->
+    </section>
     <!-- Sub Header End -->
 
-    <!-- * for patient -->
-    <!-- Login Start -->
-    <section id="login" class="mt-3">
-        <div class="container">
-            <h1 class="text-center font-weight-bold">Profile</h1>
-            <img src="../imgs/profile.png" alt="">
-            <div class="table-responsive">
-                <table class="table w-50 m-auto">
-                    <tbody>
-                        <tr>
-                            <td>first name</td>
-                            <td>Kareem</td>
-                        </tr>
-                        <tr>
-                            <td>last name</td>
-                            <td>Mohamed</td>
-                        </tr>
-                        <tr>
-                            <td>Blood type</td>
-                            <td>A+</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="text-center"><a href="profile-edit.html">edit profile</a></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="text-center"><a href="">upload profile image</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <!-- * for donnor -->
+    <div class="row justify-content-around mt-5">
+        <div class="col-lg-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row justify-content-between">
+                        <h3 class="card-title ml-3 font-weight-bold">Donation Requests</h4>
+                        <select onchange="filter(this)" class="mb-2 mr-3">
+                            <option value="">--</option>
+                            <option value="">B+</option>
+                            <option value="">A</option>
+                            <option value="">O</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Patient</th>
+                                    <th>Blood Type</th>
+                                    <th>Date</th>
+                                    <th>Hospital</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jacob</td>
+                                    <td>B+</td>
+                                    <td>12 May 2017</td>
+                                    <td>Rabea Hos</td>
+                                    <td><a href="#" onclick="alert('Sorry your blood type doesn\'t match!'); return false;" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
+                                            Donate?</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Messsy</td>
+                                    <td>O-</td>
+                                    <td>15 May 2017</td>
+                                    <td>Rabea Hos</td>
+                                    <td><a href="#" onclick="return confirm('Are u sure u want to send donnation request?')" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
+                                            Donate?</a></td>
+                                </tr>
+                                <tr>
+                                    <td>John</td>
+                                    <td>A+</td>
+                                    <td>14 May 2017</td>
+                                    <td>Rabea Hos</td>
+                                    <td><a href="#" onclick="alert('Sorry your blood type doesn\'t match!'); return false;" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
+                                            Donate?</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Peter</td>
+                                    <td>A+</td>
+                                    <td>16 May 2017</td>
+                                    <td>Rabea Hos</td>
+                                    <td><a href="#" onclick="alert('Sorry your blood type doesn\'t match!'); return false;" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
+                                            Donate?</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Dave</td>
+                                    <td>A+</td>
+                                    <td>20 May 2017</td>
+                                    <td>Rabea Hos</td>
+                                    <td><a href="#" onclick="alert('Sorry your blood type doesn\'t match!'); return false;" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
+                                            Donate?</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <!-- Login End -->
+    </div>
 
     <!-- Call us Start -->
     <section id="call-us">
@@ -189,9 +229,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script type="text/javascript" src="js/swiper.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="../js/swiper.min.js"></script>
+    <script type="text/javascript" src="../js/wow.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
 </body>
 
 </html>

@@ -81,3 +81,65 @@ function filter(e) {
 }
 
 
+
+function getPosition(element) {
+  var e = element;
+  var left = 0;
+  var top = 0;
+
+  do {
+      left += e.offsetLeft;
+      top += e.offsetTop;
+  } while (e = e.offsetParent);
+
+  return [left, top];
+}
+
+document.addEventListener('scroll', () => {
+  var reqs = document.getElementById('reqs');
+  var bloodtypes = document.getElementById('bloodtypes');
+  var callus = document.getElementById('call-us');
+
+  var reqsLink = document.querySelector('a[href="#reqs"]');
+  var bloodtypesLink = document.querySelector('a[href="#bloodtypes"]');
+  var callusLink = document.querySelector('a[href="#call-us"]');
+  var indexLink = document.querySelector('a[href="index.html"]');
+
+  reqsLink.classList.remove('selected');
+  bloodtypesLink.classList.remove('selected');
+  callusLink.classList.remove('selected');
+  indexLink.classList.remove('selected');
+
+  // console.log('doc: ' + this.scrollY);
+  // console.log('reqs: ' + getPosition(reqs)[1]);
+  // console.log('bloodtypes: ' + getPosition(bloodtypes)[1])
+
+  if (this.scrollY >= getPosition(reqs)[1] && this.scrollY < getPosition(bloodtypes)[1] - 50) {
+    bloodtypesLink.classList.remove('selected');
+    callusLink.classList.remove('selected');
+    indexLink.classList.remove('selected');
+
+    reqsLink.classList.add('selected');
+  }
+  else if (this.scrollY >= getPosition(bloodtypes)[1] - 50 && this.scrollY < getPosition(callus)[1]) {
+    reqsLink.classList.remove('selected');
+    callusLink.classList.remove('selected');
+    indexLink.classList.remove('selected');
+
+    bloodtypesLink.classList.add('selected');
+  }
+  else if (this.scrollY >= getPosition(callus)[1] && this.scrollY < getPosition(document.getElementById('footer'))[1]) {
+    reqsLink.classList.remove('selected');
+    bloodtypesLink.classList.remove('selected');
+    indexLink.classList.remove('selected');
+
+    callusLink.classList.add('selected');
+  }
+  else {
+    reqsLink.classList.remove('selected');
+    bloodtypesLink.classList.remove('selected');
+    callusLink.classList.remove('selected');
+    
+    indexLink.classList.add('selected');
+  }
+})
