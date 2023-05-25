@@ -29,17 +29,17 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- TODO for all -->
                     <li class="nav-item">
-                        <a class="nav-link selected" href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <!-- TODO for donor -->
                     <li class="nav-item">
-                        <a class="nav-link" href="patient.html"><i class="fa fa-ambulance"></i>Patients</a>
+                        <a class="nav-link" href="patient.html"><i class="fa fa-users"></i> Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="donner.html"><i class="fa fa-ambulance"></i>Donners</a>
+                        <a class="nav-link" href="donor.html"><i class="fa fa-hand-holding-heart"></i> Donners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="patient_request.html"><i class="fa fa-ambulance"></i>patient request</a>
+                        <a class="nav-link" href="patient_request.html"><i class="fa fa-list"></i> Patient requests</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="requests.html"><i class="fa fa-hand-holding-heart"></i> Donate ?</a>
@@ -60,13 +60,13 @@
                         <a class="nav-link" href="#call-us"><i class="fa fa-user"></i> Call Us</a>
                     </li> -->
                     <!-- TODO for all -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="profile.html"><i class="fa fa-user"></i> Profile</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <button class="btn btn-danger" onclick="window.location.href = '/profile.html';"
                     style="width: 200px;"><i class="fa fa-user"></i> Profile</button>
-                    <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
+                <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
     </section>
@@ -86,11 +86,11 @@
     <!-- Header End -->
 
     <!-- Sub Header Start -->
-    <section id="sub-header">
+    <!-- <section id="sub-header">
         <div class="container">
             <h3>A SINGLE PINT CAN SAVE THREE LIVES, A SINGLE GESTURE CAN CREATE A MILLION SMILES.</h3>
         </div>
-    </section>
+    </section> -->
     <!-- Sub Header End -->
 
     <!-- * for donnor -->
@@ -146,8 +146,10 @@
                                     <td>--</td>
                                     <td>--</td>
                                     <td>
-                                        <a href='#'><i class="fa fa-check text-success mr-3"></i></a>
-                                        <a href='#'><i class="fa fa-times text-danger"></i></a>
+                                        <a href='#' title="accept" type="button" data-toggle="modal"
+                                            data-target="#exampleModal"><i
+                                                class="fa fa-check text-success mr-3"></i></a>
+                                        <a href='#' title="reject" onclick="return confirm('Are you sure you want to reject this request?')"><i class="fa fa-times text-danger"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -171,50 +173,44 @@
             </div>
         </div>
     </div>
-    <!-- Footer Start -->
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="foot-info">
-                        <img src="imgs/logo.png" alt="">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos ut sit natus earum ea cum
-                            doloremque fugit. Sit non ex suscipit fugiat molestias, ipsa rerum tempore voluptates
-                            adipisci rem cum?</p>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Accept Request</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Date</label>
+                                <input type="date" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Hospital</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1">
+                            </div>
+                        
                     </div>
-                </div>
-                <div class="col">
-                    <ul class="menu">
-                        <a href="index.html">
-                            <li><i class="fa fa-home"></i> Home</li>
-                        </a>
-                        <a href="About-us.html">
-                            <li><i class="fa fa-ambulance"></i> Requests</li>
-                        </a>
-                        <a href="#articles">
-                            <li><i class="fa fa-hands-helping"></i> Request For Donation</li>
-                        </a>
-                        <a href="requests.html">
-                            <li><i class="fa fa-hand-holding-heart"></i> Donate ?</li>
-                        </a>
-                        <a href="who-we-are.html">
-                            <li><i class="fa fa-heartbeat"></i> Blood Types</li>
-                        </a>
-                        <a href="contact-us.html">
-                            <li><i class="fa fa-user"></i> Profile</li>
-                        </a>
-                    </ul>
-                </div>
-                <!-- <div class="col-md-4">
-                    <ul class="options">
-                        <li>
-                            <h5>Available On</h5>
-                        </li>
-                        <li><img src="imgs/ios1.png" alt=""></li>
-                        <li><img src="imgs/google1.png" alt=""></li>
-                    </ul>
-                </div> -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <section class="bg-dark text-light p-3 text-center">
+        <div class="container">
+            <h5>© Designed By Blood Bank Team</h5>
         </div>
     </section>
     <!-- Footer End -->
