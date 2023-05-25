@@ -50,9 +50,9 @@
                         <a class="nav-link" href="#bloodtypes"><i class="fa fa-heartbeat"></i> Blood Types</a>
                     </li> -->
                     <!-- TODO for contact -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#call-us"><i class="fa fa-user"></i> Call Us</a>
-                    </li>
+                    </li> -->
                     <!-- TODO for all -->
                     <li class="nav-item">
                         <a class="nav-link" href="profile.html"><i class="fa fa-user"></i> Profile</a>
@@ -274,74 +274,73 @@
         </div>
     </div>
 
-    <div class="row justify-content-around mt-5">
+    <div class="row justify-content-around mt-5 mb-5" id="reqs">
         <div class="col-lg-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-between">
-                        <h3 class="card-title ml-3 font-weight-bold">donner request</h4>
-                        <select onchange="filter(this)" class="mb-2 mr-3">
-                            <option value="">--</option>
-                            <option value="">B+</option>
-                            <option value="">A</option>
-                            <option value="">O</option>
-                        </select>
+                        <h3 class="card-title ml-3 font-weight-bold">Donner Request</h4>
+                            <select onchange="filter(this)" class="mb-2 mr-3">
+                                <option value="">--</option>
+                                <option value="">A-</option>
+                                <option value="">A+</option>
+                                <option value="">B-</option>
+                                <option value="">B+</option>
+                                <option value="">AB-</option>
+                                <option value="">AB+</option>
+                                <option value="">O-</option>
+                                <option value="">O+</option>
+                            </select>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Blood Type</th>
-                                    <th>date</th>
-                                    <th>hospital</th>
-                                    <th>action</th>
+                                    <td>Date</td>
+                                    <td>Hospital</td>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Jacob</td>
+                                    <td>1</td>
+                                    <td>B+</td>
                                     <td>12 May 2017</td>
-                                    <td>tabrak</td>
+                                    <td>Rabea Hospital</td>
+                                    <td><span class="badge badge-success">accepted</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>O-</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td><span class="badge badge-danger">rejected</span></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>A+</td>
+                                    <td>--</td>
+                                    <td>--</td>
                                     <td>
-                                        <a href='#'><button type='button' class='btn btn-success btn-fw'>Approve</button></a>
-                                        <a href='#'><button type='button' class='btn btn-danger btn-fw'>Cancel</button></a>
+                                        <a href='#'><button  type='button' class='btn btn-success btn-fw p-0'>Approve</button></a>
+                                        <a href='#'><button type='button' class='btn btn-danger btn-fw p-0'>Cancel</button></a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Messsy</td>
-                                    <td>12 May 2017</td>
-                                    <td>tabrak</td>
-                                    <td>
-                                        <a href='#'><button type='button' class='btn btn-success btn-fw'>Approve</button></a>
-                                        <a href='#'><button type='button' class='btn btn-danger btn-fw'>Cancel</button></a>
-                                    </td>
+                                    <td>4</td>
+                                    <td>A+</td>
+                                    <td>16 May 2017</td>
+                                    <td>Rabea Hospital</td>
+                                    <td><span class="badge badge-success">accepted</span></td>
                                 </tr>
                                 <tr>
-                                    <td>John</td>
-                                    <td>12 May 2017</td>
-                                    <td>tabrak</td>
-                                    <td>
-                                        <a href='#'><button type='button' class='btn btn-success btn-fw'>Approve</button></a>
-                                        <a href='#'><button type='button' class='btn btn-danger btn-fw'>Cancel</button></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Peter</td>
-                                    <td>12 May 2017</td>
-                                    <td>tabrak</td>
-                                    <td>
-                                        <a href='#'><button type='button' class='btn btn-success btn-fw'>Approve</button></a>
-                                        <a href='#'><button type='button' class='btn btn-danger btn-fw'>Cancel</button></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Dave</td>
-                                    <td>12 May 2017</td>
-                                    <td>tabrak</td>
-                                    <td>
-                                        <a href='#'><button type='button' class='btn btn-success btn-fw'>Approve</button></a>
-                                        <a href='#'><button type='button' class='btn btn-danger btn-fw'>Cancel</button></a>
-                                    </td>
+                                    <td>5</td>
+                                    <td>A+</td>
+                                    <td>20 May 2017</td>
+                                    <td>Rabea Hospital</td>
+                                    <td><span class="badge badge-success">accepted</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -350,22 +349,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Call us Start -->
-    <section id="call-us">
-        <div class="layer">
-            <div class="container">
-                <h1>Call Us</h1>
-                <h4>You can call us for your inquiries about any information.</h4>
-                <div class="whats">
-                    <img src="imgs/whats.png" alt="">
-                    <h3>+20 127 245 6884</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Call us End -->
-
     <!-- Footer Start -->
     <section id="footer">
         <div class="container">
