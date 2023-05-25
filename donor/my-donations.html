@@ -33,11 +33,11 @@
                     </li>
                     <!-- TODO for donor -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#requests"><i class="fa fa-ambulance"></i> Requests</a>
+                        <a class="nav-link" href="donate.html"><i class="fa fa-hand-holding-heart"></i> Donate ?</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="requests.html"><i class="fa fa-hand-holding-heart"></i> Donate ?</a>
-                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="my-donations.html"><i class="fa fa-list"></i> My Donations</a>
+                    </li>
                     <!-- TODO for patient -->
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="index.html#">
@@ -46,21 +46,21 @@
                         </a>
                     </li> -->
                     <!-- TODO for visitor -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="index.html#bloodtypes"><i class="fa fa-heartbeat"></i> Blood Types</a>
-                    </li>
+                    </li> -->
                     <!-- TODO for contact -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="index.html#call-us"><i class="fa fa-user"></i> Call Us</a>
-                    </li>
+                    </li> -->
                     <!-- TODO for all -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="profile.html"><i class="fa fa-user"></i> Profile</a>
-                    </li>
+                    </li> -->
                 </ul>
-                <button class="btn signup" onclick="window.location.href = 'signup.html';">New Account</button>
-                <button class="btn btn-danger" onclick="window.location.href = 'login.html';"
-                    style="width: 200px;">Login</button>
+                <button class="btn btn-danger" onclick="window.location.href = '/profile.html';"
+                    style="width: 200px;"><i class="fa fa-user"></i> Profile</button>
+                    <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
     </section>
@@ -87,45 +87,78 @@
     </section> -->
     <!-- Sub Header End -->
 
-    <!-- * for patient -->
-    <!-- Login Start -->
-    <section id="login" class="mt-3">
-        <div class="container">
-            <h1 class="text-center font-weight-bold">Reset Password</h1>
-            <form action="password-reset-form.html" class="w-75 m-auto">
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="type"><i class="fa fa-user"></i> Patient</label>
-                    <input type="radio" name="type" id="type" class="ml-2 mr-5">
-                    <label for="type2"><i class="fa fa-hand-holding-heart"></i> Donor</label>
-                    <input type="radio" name="type" id="type2" class="ml-2 mr-5">
-                </div>
-
-                <button type="submit" class="btn btn-danger w-100 p-1 m-0">Send Reset Link</button>
-            </form>
-        </div>
-    </section>
-    <!-- Login End -->
-
-    <!-- Call us Start -->
-    <section id="call-us">
-        <div class="layer">
-            <div class="container">
-                <h1>Call Us</h1>
-                <h4>You can call us for your inquiries about any information.</h4>
-                <div class="whats">
-                    <img src="imgs/whats.png" alt="">
-                    <h3>+20 127 245 6884</h3>
+    <div class="row justify-content-around mt-5 mb-5" id="reqs">
+        <div class="col-lg-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row justify-content-between">
+                        <h3 class="card-title ml-3 font-weight-bold">My Donations</h4>
+                            <select onchange="filter(this)" class="mb-2 mr-3">
+                                <option value="">--</option>
+                                <option value="">A-</option>
+                                <option value="">A+</option>
+                                <option value="">B-</option>
+                                <option value="">B+</option>
+                                <option value="">AB-</option>
+                                <option value="">AB+</option>
+                                <option value="">O-</option>
+                                <option value="">O+</option>
+                            </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Blood Type</th>
+                                    <td>Date</td>
+                                    <td>Hospital</td>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>B+</td>
+                                    <td>12 May 2017</td>
+                                    <td>Rabea Hospital</td>
+                                    <td><span class="badge badge-success">accepted</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>O-</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td><span class="badge badge-danger">rejected</span></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>A+</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td><span class="badge badge-warning">pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>A+</td>
+                                    <td>16 May 2017</td>
+                                    <td>Rabea Hospital</td>
+                                    <td><span class="badge badge-success">accepted</span></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>A+</td>
+                                    <td>20 May 2017</td>
+                                    <td>Rabea Hospital</td>
+                                    <td><span class="badge badge-success">accepted</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Call us End -->
+    </div>
 
     <!-- Footer Start -->
     <section id="footer">
@@ -144,7 +177,7 @@
                         <a href="index.html">
                             <li><i class="fa fa-home"></i> Home</li>
                         </a>
-                        <a href="About-us.html">
+                        <!-- <a href="About-us.html">
                             <li><i class="fa fa-ambulance"></i> Requests</li>
                         </a>
                         <a href="#articles">
@@ -157,7 +190,7 @@
                             <li><i class="fa fa-heartbeat"></i> Blood Types</li>
                         </a>
                         <a href="contact-us.html">
-                            <li><i class="fa fa-user"></i> Profile</li>
+                            <li><i class="fa fa-user"></i> Profile</li> -->
                         </a>
                     </ul>
                 </div>
@@ -180,9 +213,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script type="text/javascript" src="js/swiper.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="../js/swiper.min.js"></script>
+    <script type="text/javascript" src="../js/wow.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
 </body>
 
 </html>
