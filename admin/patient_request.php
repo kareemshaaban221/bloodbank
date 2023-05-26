@@ -28,21 +28,21 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- TODO for all -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <!-- TODO for donor -->
                     <li class="nav-item">
-                        <a class="nav-link" href="patient.html"><i class="fa fa-users"></i> Patients</a>
+                        <a class="nav-link" href="patient.php"><i class="fa fa-users"></i> Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="donor.html"><i class="fa fa-hand-holding-heart"></i> Donners</a>
+                        <a class="nav-link" href="donor.php"><i class="fa fa-hand-holding-heart"></i> Donners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="patient_request.html"><i class="fa fa-list"></i> Patient requests</a>
+                        <a class="nav-link" href="patient_request.php"><i class="fa fa-list"></i> Patient requests</a>
                     </li>
-                   
+                    
                 </ul>
-                <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
+                <button class="btn signup" onclick="window.location.href = '../visitor/index.php';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
     </section>
@@ -53,14 +53,26 @@
     <!-- Header Start -->
     <section id="header">
         <div class="container">
-              </div>
+             </div>
     </section>
-     <div class="row justify-content-around mt-5">
+   
+    <div class="row justify-content-around mt-5">
         <div class="col-lg-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-between">
-                        <h3 class="card-title ml-3 font-weight-bold">Patient Table</h4>
+                        <h3 class="card-title ml-3 font-weight-bold">Patient Requests</h4>
+  <select onchange="filter(this)" class="mb-2 mr-3">
+                            <option value="">--</option>
+                            <option value="">A-</option>
+                            <option value="">A+</option>
+                            <option value="">B-</option>
+                            <option value="">B+</option>
+                            <option value="">AB-</option>
+                            <option value="">AB+</option>
+                            <option value="">O-</option>
+                            <option value="">O+</option>
+                        </select>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -68,40 +80,34 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
+                                    <th>Blood Type</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Jacob</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>mansoura</td>
-                                    <td>6724768238</td>
+                                    <td>B+</td>
                                 </tr>
                                 <tr>
                                     <td>Messsy</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>mansoura</td>
-                                    <td>6724768238</td>
+                                    <td>O-</td>
                                 </tr>
                                 <tr>
                                     <td>John</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>mansoura</td>
-                                    <td>6724768238</td>
+                                    <td>A+</td>
                                 </tr>
                                 <tr>
                                     <td>Peter</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>mansoura</td>
-                                    <td>6724768238</td>
+                                    <td>A+</td>
                                 </tr>
                                 <tr>
                                     <td>Dave</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>mansoura</td>
-                                    <td>6724768238</td>
+                                    <td>A+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -130,4 +136,3 @@
 </body>
 
 </html>
-

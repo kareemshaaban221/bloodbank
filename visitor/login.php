@@ -8,7 +8,7 @@ session_start();
         }
         $email=$conect->escapeString($_POST['email']); 
         $password=$conect->escapeString($_POST['password']);
-        // $password=password_hash($password, PASSWORD_DEFAULT);
+        $password=crypt($password, PASSWORD_DEFAULT);
         if($_POST['type']=='patient'){
             $result=$conect->get('patients',"email='$email' and password='$password' ");
             if($row=mysqli_fetch_assoc($result)){
@@ -19,6 +19,7 @@ session_start();
                 $_SESSION['patient_phone']=$row['phone'];
                 $_SESSION['patient_blood_type']=$row['blood_type'];
                 $_SESSION['patient_image']=$row['image'];
+                $_SESSION['user_type']='patient';
                 header("location:../patient/index.php");
                 exit;
             }
@@ -26,7 +27,42 @@ session_start();
                 $error="invalid email or Password";
             }
             mysqli_free_result($result);
-            // mysqli_close($conect);
+        }
+        if($_POST['type']=='donor'){
+            $result=$conect->get('donors',"email='$email' and password='$password' ");
+            if($row=mysqli_fetch_assoc($result)){
+                $_SESSION['donor_id']=$row['id'];
+                $_SESSION['donor_name']=$row['name'];
+                $_SESSION['donor_email']=$row['email'];
+                $_SESSION['donor_address']=$row['address'];
+                $_SESSION['donor_phone']=$row['phone'];
+                $_SESSION['donor_blood_type']=$row['blood_type'];
+                $_SESSION['donor_image']=$row['image'];
+                $_SESSION['user_type']='donor';
+                header("location:../donor/index.php");
+                exit;
+            }
+            else{
+                $error="invalid email or Password";
+            }
+            mysqli_free_result($result);
+        }
+        if($_POST['type']=='admin'){
+            $password=$conect->escapeString($_POST['password']);
+            $result=$conect->get('admins',"email='$email' and password='$password' ");
+            if($row=mysqli_fetch_assoc($result)){
+                $_SESSION['admin_id']=$row['id'];
+                $_SESSION['admin_name']=$row['name'];
+                $_SESSION['admin_email']=$row['email'];
+                $_SESSION['admin_image']=$row['image'];
+                $_SESSION['user_type']='admin';
+                header("location:../admin/index.php");
+                exit;
+            }
+            else{
+                $error="invalid email or Password";
+            }
+            mysqli_free_result($result);
         }
     }
 ?>
@@ -78,7 +114,7 @@ session_start();
     <section id="login" class="mt-3">
         <div class="container">
             <h1 class="text-center font-weight-bold">Login</h1>
-            <form method="post" class="w-75 m-auto">
+            <form method="post" action="login.php" class="w-75 m-auto">
                 
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -96,6 +132,8 @@ session_start();
                     <input type="radio" name="type" id="type" value="patient" class="ml-2 mr-5">
                     <label for="type2"><i class="fa fa-hand-holding-heart"></i> Donor</label>
                     <input type="radio" name="type" id="type2" value="donor" class="ml-2 mr-5">
+                    <label for="type3"><i class="fa fa-hand-holding-heart"></i> Admin</label>
+                    <input type="radio" name="type" id="type3" value="admin" class="ml-2 mr-5">
                 </div>
 
                 <button type="submit" class="btn btn-danger p-1 m-0">Login</button>

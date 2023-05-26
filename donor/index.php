@@ -1,3 +1,19 @@
+<?php
+require('../backend/DB.php');
+if(isset($_SESSION['donor_id'])){
+    header("location:../visitor/index.php");
+    exit;
+}
+if(!isset($_SESSION['donor_id'])){
+    $conect=new DbSql();
+    if(!$conect){
+        echo mysqli_connect_error();
+        exit;
+    }
+}
+$conect=new DbSql();
+$patient_requests1=$conect->get('patient_requests');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,12 +49,12 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="my-donations.html"><i class="fa fa-list"></i> My Donations</a>
+                        <a class="nav-link" href="my-donations.php"><i class="fa fa-list"></i> My Donations</a>
                     </li>
                 </ul>
                 <button class="btn btn-danger" onclick="window.location.href = 'profile.html';"
                     style="width: 200px;"><i class="fa fa-user"></i> Profile</button>
-                    <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
+                    <button class="btn signup" onclick="window.location.href = '../backend/logout.php';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
     </section>
@@ -86,46 +102,26 @@
                                 <tr>
                                     <th>Patient</th>
                                     <th>Blood Type</th>
-                                    <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>B+</td>
-                                    <td>12 May 2017</td>
-                                    <td><a href="#" onclick="return confirm('Are u sure u want to send donnation request?')" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
-                                            Donate?</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Messsy</td>
-                                    <td>O-</td>
-                                    <td>15 May 2017</td>
-                                    <td><a href="#" onclick="return confirm('Are u sure u want to send donnation request?')" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
-                                            Donate?</a></td>
-                                </tr>
-                                <tr>
-                                    <td>John</td>
-                                    <td>A+</td>
-                                    <td>14 May 2017</td>
-                                    <td><a href="#" onclick="return confirm('Are u sure u want to send donnation request?')" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
-                                            Donate?</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Peter</td>
-                                    <td>A+</td>
-                                    <td>16 May 2017</td>
-                                    <td><a href="#" onclick="return confirm('Are u sure u want to send donnation request?')" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
-                                            Donate?</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Dave</td>
-                                    <td>A+</td>
-                                    <td>20 May 2017</td>
-                                    <td><a href="#" onclick="return confirm('Are u sure u want to send donnation request?')" class="btn btn-danger"><i class="fa fa-hand-holding-heart"></i>
-                                            Donate?</a></td>
-                                </tr>
+                            <?php
+                                while ($patient_requests=mysqli_fetch_assoc($patient_requests1)) {?>
+                                    <tr>
+                                        <?php 
+                                        $patient_id=$patient_requests['patient_id'];
+                                        $patient=$conect->get('patients',"id=$patient_id");
+                                        $patient=mysqli_fetch_assoc($patient);
+                                        $name=$patient['name'];
+                                        $blood=$patient_requests['blood_type'];
+                                        echo "<td>$name</td>"
+                                        ?>
+                                        <td><?php echo $blood?></td>
+                                        <td><a href='../backend/insert_in_doner_request.php?blood=<?php echo $blood?>'
+                                        onclick="return confirm('Are u sure u want to send donnation request?')" class='btn btn-danger'><i class='fa fa-hand-holding-heart'></i>Donate?</a></td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

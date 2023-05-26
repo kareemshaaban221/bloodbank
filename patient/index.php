@@ -44,12 +44,15 @@
                 <button class="btn signup" onclick="window.location.href = '../backend/logout.php';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
+        <?php
+        if (isset($_GET['massage'])){?>
         <div class='alert alert-success alert-dismissible'>
-                            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-                            <strong><?php echo $_GET['massage'] ?></strong>
-                        </div>;
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong><?php echo $_GET['massage'] ?></strong>
+        </div>;
         <div style="height: 110px;"></div>
-        <?php $_GET=[];?>
+    <?php }
+    ?>
     </section>
     <!-- Navbar 2 End -->
     

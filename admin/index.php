@@ -28,21 +28,21 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- TODO for all -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <!-- TODO for donor -->
                     <li class="nav-item">
-                        <a class="nav-link" href="patient.html"><i class="fa fa-users"></i> Patients</a>
+                        <a class="nav-link" href="patient.php"><i class="fa fa-users"></i> Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="donor.html"><i class="fa fa-hand-holding-heart"></i> Donners</a>
+                        <a class="nav-link" href="donor.php"><i class="fa fa-hand-holding-heart"></i> Donners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="patient_request.html"><i class="fa fa-list"></i> Patient requests</a>
+                        <a class="nav-link" href="patient_request.php"><i class="fa fa-list"></i> Patient requests</a>
                     </li>
                     
                 </ul>
-                <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
+                <button class="btn signup" onclick="window.location.href = '../visitor/index.php';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
     </section>

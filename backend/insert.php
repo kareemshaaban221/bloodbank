@@ -54,18 +54,18 @@ if($_POST['type']=='patient'){
     $email=$conect->escapeString($_POST['email']);
     $blood=$conect->escapeString($_POST['blood']);
     $password=$conect->escapeString($_POST['password']);
-    // $password=password_hash($password, PASSWORD_DEFAULT);
+    $password=crypt($password, PASSWORD_DEFAULT);
     $phone=$conect->escapeString($_POST['phone']);
     $address=$conect->escapeString($_POST['address']);
     $image=$conect->escapeString($_POST['image']);
     $querry=$conect->insertInto('patients',"name='$fname $lname',email='$email',password='$password',address='$address',phone='$phone',blood_type='$blood',image='$image'");
     if($querry){
+        $_SESSION['user_type']='patient';
         header("location:../patient/index.php");
         exit;
     }
 }
 elseif($_POST['type']=='donor'){
-    // $conect= mysqli_connect('localhost','root','','form_user');
     $conect=new DbSql();
     if(!$conect){
         echo mysqli_connect_error();
@@ -75,13 +75,13 @@ elseif($_POST['type']=='donor'){
     $email=$conect->escapeString($_POST['email']);
     $blood=$conect->escapeString($_POST['blood']);
     $password=$conect->escapeString($_POST['password']);
-    $password=password_hash($password, PASSWORD_DEFAULT);
+    $password=crypt($password, PASSWORD_DEFAULT);
     $phone=$conect->escapeString($_POST['phone']);
     $address=$conect->escapeString($_POST['address']);
     $image=$conect->escapeString($_POST['image']);
-    // $querry="INSERT INTO users (`name`,`address`,`email`) VALUES ('$name','$address','$email')";
     $querry=$conect->insertInto('donors',"name='$fname $lname',email='$email',password='$password',address='$address',phone='$phone',blood_type='$blood',image='$image'");
     if($querry){
+        $_SESSION['user_type']='donor';
         header("location:../donor/index.php");
         exit;
     }
