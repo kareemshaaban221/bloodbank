@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('blood_type');
             $table->string('hospital')->nullable();
-            $table->date('date')->nullable();
+            $table->timestamp('date')->nullable();
             $table->enum('status', ['accepted', 'rejected', 'pending']);
             $table->timestamps();
 

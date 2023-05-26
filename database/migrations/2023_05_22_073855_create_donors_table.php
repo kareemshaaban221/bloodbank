@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('address');
+            $table->string('image');
             $table->string('phone');
             $table->string('blood_type');
             $table->timestamps();

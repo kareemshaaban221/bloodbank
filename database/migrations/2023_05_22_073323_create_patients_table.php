@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('address');
+            $table->string('image');
+            $table->string('address'); // test
+            $table->string('blood_type');
             $table->string('phone');
+            $table->string('password');
             $table->timestamps();
         });
     }
