@@ -29,12 +29,12 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- TODO for all -->
                     <li class="nav-item">
-                        <a class="nav-link selected" href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a class="nav-link selected" href="index.php"><i class="fa fa-home"></i> Home</a>
                     </li>
                 
                 </ul>
-                <button class="btn signup" onclick="window.location.href = 'signup.html';">New Account</button>
-                <button class="btn btn-danger" onclick="window.location.href = 'login.html';"
+                <button class="btn signup" onclick="window.location.href = 'signup.php';">New Account</button>
+                <button class="btn btn-danger" onclick="window.location.href = 'login.php';"
                     style="width: 200px;">Login</button>
             </div>
         </nav>

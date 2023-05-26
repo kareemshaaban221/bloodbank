@@ -1,3 +1,9 @@
+<?php
+// if(!isset($_SESSION['patient_id'])){
+//     header("location:../visitor/index.php");
+//     exit;
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,15 +41,19 @@
                 </ul>
                 <button class="btn btn-danger" onclick="window.location.href = 'profile.html';"
                     style="width: 200px;"><i class="fa fa-user"></i> Profile</button>
-                <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
+                <button class="btn signup" onclick="window.location.href = '../backend/logout.php';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
+        <div class='alert alert-success alert-dismissible'>
+                            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                            <strong><?php echo $_GET['massage'] ?></strong>
+                        </div>;
+        <div style="height: 110px;"></div>
+        <?php $_GET=[];?>
     </section>
     <!-- Navbar 2 End -->
-
-    <div style="height: 110px;"></div>
-
-
+    
+    
 
     <!-- Sub Header Start -->
     <section id="sub-header">
@@ -59,21 +69,21 @@
         <div class="container">
             <h1 class="text-center font-weight-bold">Request For Donation</h1>
             <img src="imgs/logo.png" alt="">
-            <form action="submit">
-                <select class="username" name="Type" id="">
+            <form action="../backend/insert_in_patient_request.php" method="post">
+                <select class="username" name="type" id="">
                     <option value="" disabled selected>Select Blood Type</option>
-                    <option value="">A-</option>
-                    <option value="">A+</option>
-                    <option value="">B-</option>
-                    <option value="">B+</option>
-                    <option value="">AB-</option>
-                    <option value="">AB+</option>
-                    <option value="">O-</option>
-                    <option value="">O+</option>
+                    <option value="A-">A-</option>
+                    <option value="A+">A+</option>
+                    <option value="B-">B-</option>
+                    <option value="B+">B+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="O-">O-</option>
+                    <option value="O+">O+</option>
                 </select>
                 <!-- <input class="password" type="date" placeholder="Date" required> -->
                 <div class="reg-group">
-                    <button class="btn btn-danger" onclick="window.location.href = 'login.html';"
+                    <button class="btn btn-danger" type="submit" 
                     style="width: 200px;">Send Request</button>
                 </div>
             </form>
