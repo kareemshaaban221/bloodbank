@@ -1,3 +1,15 @@
+<?php
+require('../backend/DB.php');
+if(isset($_SESSION['donor_id'])){
+    $conect=new DbSql();
+    if(!$conect){
+        echo mysqli_connect_error();
+        exit;
+    }
+}
+$conect=new DbSql();
+$donor_requests1=$conect->get('donor_requests');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +51,7 @@
                 </ul>
                 <button class="btn btn-danger" onclick="window.location.href = 'profile.html';"
                     style="width: 200px;"><i class="fa fa-user"></i> Profile</button>
-                <button class="btn signup" onclick="window.location.href = '/donor';">Logout <i class="fa fa-sign-out-alt"></i></button>
+                <button class="btn signup" onclick="window.location.href = '../visitor/index.php';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
         </nav>
     </section>
@@ -86,13 +98,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>B+</td>
-                                    <td>12 May 2017</td>
-                                    <td>Rabea Hospital</td>
-                                    <td><span class="badge badge-success">accepted</span></td>
-                                </tr>
+                            <?php
+                                $i=0;
+                                while ($donor_requests=mysqli_fetch_assoc($donor_requests1)) {?>
+                                    <tr>
+                                        <?php 
+                                        ++$i;
+                                        echo "<td>$i</td>"
+                                        ?>
+                                        <?php
+                                        if($donor_requests['status']=='pending' || $donor_requests['status']=='rejected'){
+                                            $blood=$donor_requests['blood_type'];
+                                            ?>
+                                            <td><?php echo $blood?></td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td><span class="badge badge-warning">pending</span></td>                                    </tr>
+                                        <?php 
+                                        }
+                                        ?>
+                                <?php } ?>
                                 <tr>
                                     <td>2</td>
                                     <td>O-</td>
@@ -111,13 +136,6 @@
                                     <td>4</td>
                                     <td>A+</td>
                                     <td>16 May 2017</td>
-                                    <td>Rabea Hospital</td>
-                                    <td><span class="badge badge-success">accepted</span></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>A+</td>
-                                    <td>20 May 2017</td>
                                     <td>Rabea Hospital</td>
                                     <td><span class="badge badge-success">accepted</span></td>
                                 </tr>

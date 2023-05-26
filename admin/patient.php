@@ -1,3 +1,17 @@
+<?php
+require('../backend/DB.php');
+if(isset($_SESSION['admin_id'])){
+    $conect=new DbSql();
+    if(!$conect){
+        echo mysqli_connect_error();
+        exit;
+    }
+}
+$conect=new DbSql();
+$donor_requests1=$conect->get('patients');
+$conect=new DbSql();
+$patient_requests1=$conect->get('patient_requests');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,19 +42,19 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- TODO for all -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <!-- TODO for donor -->
                     <li class="nav-item">
-                        <a class="nav-link" href="patient.html"><i class="fa fa-users"></i> Patients</a>
+                        <a class="nav-link" href="patient.php"><i class="fa fa-users"></i> Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="donor.html"><i class="fa fa-hand-holding-heart"></i> Donners</a>
+                        <a class="nav-link" href="donor.php"><i class="fa fa-hand-holding-heart"></i> Donners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="patient_request.html"><i class="fa fa-list"></i> Patient requests</a>
+                        <a class="nav-link" href="patient_request.php"><i class="fa fa-list"></i> Patient requests</a>
                     </li>
-                    
+                   
                 </ul>
                 <button class="btn signup" onclick="window.location.href = '/visitor';">Logout <i class="fa fa-sign-out-alt"></i></button>
             </div>
@@ -53,26 +67,14 @@
     <!-- Header Start -->
     <section id="header">
         <div class="container">
-             </div>
+              </div>
     </section>
-   
-    <div class="row justify-content-around mt-5">
+     <div class="row justify-content-around mt-5">
         <div class="col-lg-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-between">
-                        <h3 class="card-title ml-3 font-weight-bold">Patient Requests</h4>
-  <select onchange="filter(this)" class="mb-2 mr-3">
-                            <option value="">--</option>
-                            <option value="">A-</option>
-                            <option value="">A+</option>
-                            <option value="">B-</option>
-                            <option value="">B+</option>
-                            <option value="">AB-</option>
-                            <option value="">AB+</option>
-                            <option value="">O-</option>
-                            <option value="">O+</option>
-                        </select>
+                        <h3 class="card-title ml-3 font-weight-bold">Patient Table</h4>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -80,34 +82,40 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Blood Type</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Jacob</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>B+</td>
+                                    <td>mansoura</td>
+                                    <td>6724768238</td>
                                 </tr>
                                 <tr>
                                     <td>Messsy</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>O-</td>
+                                    <td>mansoura</td>
+                                    <td>6724768238</td>
                                 </tr>
                                 <tr>
                                     <td>John</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>A+</td>
+                                    <td>mansoura</td>
+                                    <td>6724768238</td>
                                 </tr>
                                 <tr>
                                     <td>Peter</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>A+</td>
+                                    <td>mansoura</td>
+                                    <td>6724768238</td>
                                 </tr>
                                 <tr>
                                     <td>Dave</td>
                                     <td>yahaia@gmail.com</td>
-                                    <td>A+</td>
+                                    <td>mansoura</td>
+                                    <td>6724768238</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -136,3 +144,4 @@
 </body>
 
 </html>
+
