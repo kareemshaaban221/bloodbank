@@ -1,262 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    include 'layouts/components/header-parts/nav.php';
+    include 'layouts/components/header-parts/header.php';
+    include 'layouts/components/header-parts/header2.php';
+?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-
-    <!-- website font  -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-
-    <title>Blood Bank</title>
-</head>
-
-<body>
-    <!-- Navbar 2 Start -->
-    <section id="Nav2" class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img src="../imgs/logo.png" width="7%">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <!-- TODO for all -->
-                    <li class="nav-item">
-                        <a class="nav-link selected" href="index.php"><i class="fa fa-home"></i> Home</a>
-                    </li>
-                
-                </ul>
-                <button class="btn signup" onclick="window.location.href = 'signup.php';">New Account</button>
-                <button class="btn btn-danger" onclick="window.location.href = 'login.php';"
-                    style="width: 200px;">Login</button>
-            </div>
-        </nav>
-    </section>
-    <!-- Navbar 2 End -->
-
-    <div style="height: 110px;"></div>
-
-    <!-- Header Start -->
-    <section id="header">
-        <div class="container">
-               </div>
-    </section>
-    <!-- Header End -->
-
-    <!-- Sub Header Start -->
-    <section id="sub-header">
-        <div class="container">
-            <h3>A SINGLE PINT CAN SAVE THREE LIVES, A SINGLE GESTURE CAN CREATE A MILLION SMILES.</h3>
-        </div>
-    </section>
-    <!-- Sub Header End -->
-
-    <!-- * for visitor about patients requests -->
-    <div class="row justify-content-around mt-5 mb-5" id="reqs">
-        <div class="col-lg-8 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row justify-content-between">
-                        <h3 class="card-title ml-3 font-weight-bold">Blood types matching</h4>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-center">
-                            <thead>
-                                <tr>
-                                    <th class="align-middle" rowspan="2">Receipient</th>
-                                    <th colspan="8">Donor</th>
-                                    <!-- <th>Blood Type</th>
-                                    <th>Date</th>
-                                    <th>Hospital</th> -->
-                                </tr>
-                                <tr>
-                                    <th>O-</th>
-                                    <th>O+</th>
-                                    <th>A-</th>
-                                    <th>A+</th>
-                                    <th>B-</th>
-                                    <th>B+</th>
-                                    <th>AB-</th>
-                                    <th>AB+</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>O-</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <th>O+</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <th>A-</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <th>A+</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <th>B-</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <th>B+</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <th>AB-</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-danger"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <th>AB+</th>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                    <td class="text-success"><i class="fa fa-check"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+<!-- * for visitor about patients requests -->
+<div class="row justify-content-around mt-5 mb-5" id="reqs">
+    <div class="col-lg-8 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="row justify-content-between">
+                    <h3 class="card-title ml-3 font-weight-bold">Blood types matching</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th class="align-middle" rowspan="2">Receipient</th>
+                                <th colspan="8">Donor</th>
+                                <!-- <th>Blood Type</th>
+                                <th>Date</th>
+                                <th>Hospital</th> -->
+                            </tr>
+                            <tr>
+                                <th>O-</th>
+                                <th>O+</th>
+                                <th>A-</th>
+                                <th>A+</th>
+                                <th>B-</th>
+                                <th>B+</th>
+                                <th>AB-</th>
+                                <th>AB+</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>O-</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                            </tr>
+                            <tr>
+                                <th>O+</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                            </tr>
+                            <tr>
+                                <th>A-</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                            </tr>
+                            <tr>
+                                <th>A+</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                            </tr>
+                            <tr>
+                                <th>B-</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                            </tr>
+                            <tr>
+                                <th>B+</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                            </tr>
+                            <tr>
+                                <th>AB-</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                            </tr>
+                            <tr>
+                                <th>AB+</th>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                                <td class="text-success"><i class="fa fa-check"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-     
-    <!-- * for visitor about donors blood types -->
-    <div class="row justify-content-around mt-5 mb-5" id="bloodtypes">
-        <div class="col-lg-8 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row justify-content-between">
-                        <h3 class="card-title ml-3 font-weight-bold">Donors</h4>
-                            <select onchange="filter(this)" class="mb-2 mr-3">
-                                <option value="">--</option>
-                                <option value="">A-</option>
-                                <option value="">A+</option>
-                                <option value="">B-</option>
-                                <option value="">B+</option>
-                                <option value="">AB-</option>
-                                <option value="">AB+</option>
-                                <option value="">O-</option>
-                                <option value="">O+</option>
-                            </select>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Donor</th>
-                                    <th>Blood Type</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>B+</td>
-                                </tr>
-                                <tr>
-                                    <td>Messsy</td>
-                                    <td>O-</td>
-                                </tr>
-                                <tr>
-                                    <td>John</td>
-                                    <td>A+</td>
-                                </tr>
-                                <tr>
-                                    <td>Peter</td>
-                                    <td>A+</td>
-                                </tr>
-                                <tr>
-                                    <td>Dave</td>
-                                    <td>A+</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
+<!-- * for visitor about donors blood types -->
+<div class="row justify-content-around mt-5 mb-5" id="bloodtypes">
+    <div class="col-lg-8 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="row justify-content-between">
+                    <h3 class="card-title ml-3 font-weight-bold">Donors</h3>
+                        <select onchange="filter(this)" class="mb-2 mr-3">
+                            <option value="">--</option>
+                            <option value="">A-</option>
+                            <option value="">A+</option>
+                            <option value="">B-</option>
+                            <option value="">B+</option>
+                            <option value="">AB-</option>
+                            <option value="">AB+</option>
+                            <option value="">O-</option>
+                            <option value="">O+</option>
+                        </select>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Donor</th>
+                                <th>Blood Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>B+</td>
+                            </tr>
+                            <tr>
+                                <td>Messsy</td>
+                                <td>O-</td>
+                            </tr>
+                            <tr>
+                                <td>John</td>
+                                <td>A+</td>
+                            </tr>
+                            <tr>
+                                <td>Peter</td>
+                                <td>A+</td>
+                            </tr>
+                            <tr>
+                                <td>Dave</td>
+                                <td>A+</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Footer Start -->
-    <section class="bg-dark text-light p-3 text-center">
-        <div class="container">
-            <h5>© Designed By Blood Bank Team</h5>
-        </div>
-    </section>
-    <!-- Footer End -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script type="text/javascript" src="../js/swiper.min.js"></script>
-    <script type="text/javascript" src="../js/wow.min.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
-</body>
-
-</html>
+</div>

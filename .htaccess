@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Exclude /assets/ directory from redirection
+RewriteCond %{REQUEST_URI} !^/bloodbank/assets/ [NC]
+
+# Redirect all other requests to index.php
+RewriteCond %{REQUEST_URI} !^/bloodbank/index.php$
+RewriteRule ^(.*)$ /bloodbank/index.php [L]

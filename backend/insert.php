@@ -60,7 +60,8 @@ if($_POST['type']=='patient'){
     $image=$conect->escapeString($_POST['image']);
     $querry=$conect->insertInto('patients',"name='$fname $lname',email='$email',password='$password',address='$address',phone='$phone',blood_type='$blood',image='$image'");
     if($querry){
-        header("location:../patient/index.php");
+        $_SESSION['user_type'] = 'patient';
+        header("location:localhost/bloodbank/index");
         exit;
     }
 }
