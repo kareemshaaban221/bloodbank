@@ -29,7 +29,7 @@
                         <a class="nav-link" href="patient_requests"><i class="fa fa-list"></i> Patient Requests</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="my_donations"><i class="fa fa-list"></i> My Donations</a>
+                        <a class="nav-link" href="donor_requests"><i class="fa fa-list"></i> Donor Requests</a>
                     </li>
                     <?php endif; ?>
             </ul>

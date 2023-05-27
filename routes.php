@@ -25,4 +25,7 @@ if (!Auth::check()) {
     $router->get('/patients', '/patient.php');
     $router->get('/patient_requests', '/patient_request.php');
     $router->get('/donors', '/donor.php');
+    $router->get('/donor_requests', '/index.php');
+    $router->post('/approve', '/approve.php');
+    $router->get('/cancel', '/cancel.php');
 }

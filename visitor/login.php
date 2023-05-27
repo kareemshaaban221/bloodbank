@@ -14,7 +14,7 @@ if (Request::method() === "post") {
 
     $email = $conect->escapeString(Request::get('email'));
     $password = $conect->escapeString(Request::get('password'));
-    // $password = crypt($password, PASSWORD_DEFAULT);
+    $password = crypt($password, PASSWORD_DEFAULT);
 
     if (Request::get('type') && Request::get('type') == 'patient') {
         $result = $conect->get('patients', "email='$email' and password='$password' ");
