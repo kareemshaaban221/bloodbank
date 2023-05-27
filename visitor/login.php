@@ -72,7 +72,18 @@ if (Request::method() === "post") {
 }
 
 include 'layouts/components/header-parts/nav.php';
+include 'layouts/components/header-parts/header2.php';
 ?>
+
+<?php if (Request::get('message')): ?>
+    <div class='alert alert-success alert-dismissible text-center' style="position: fixed; bottom: 5px; right: 5px; z-index: 99999">
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+        <strong>
+            <?= Request::get('message') ?>
+        </strong>
+    </div>
+<?php endif; ?>
+
 <section id="login" class="mt-3">
     <div class="container">
         <h1 class="text-center font-weight-bold">Login</h1>
@@ -108,7 +119,7 @@ include 'layouts/components/header-parts/nav.php';
             </div>
 
             <button type="submit" class="btn btn-danger p-1 m-0">Login</button>
-            <a href="password-reset.html" class="ml-3 text-danger">Forget Password?</a>
+            <a href="password_reset_email" class="ml-3 text-danger">Forget Password?</a>
         </form>
     </div>
 </section>

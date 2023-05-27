@@ -27,7 +27,7 @@ class DbSql {
         return $this->connection->query("DELETE FROM $tableName WHERE $condtion");
     }
     public function update($tableName,$data,$condtion){
-            return $this->connection->query("UPDATE $tableName SET $data   WHERE $condtion");
+        return $this->connection->query("UPDATE $tableName SET $data WHERE $condtion");
     }
     public function escapeString($string){
         return $this->connection->escape_string($string);

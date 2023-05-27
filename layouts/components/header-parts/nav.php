@@ -10,7 +10,7 @@
             <ul class="navbar-nav mr-auto">
                 <!-- TODO for all -->
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
+                    <a class="nav-link" href="home"><i class="fa fa-home"></i> Home</a>
                 </li>
 
                 <?php if (Auth::check() && Auth::user_type() == 'donor'): ?>

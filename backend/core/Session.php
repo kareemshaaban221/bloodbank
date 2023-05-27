@@ -34,6 +34,10 @@ class Session {
             return false;
     }
 
+    public static function clear() {
+        $_SESSION = [];
+    }
+
     public static function all() {
         return $_SESSION;
     }

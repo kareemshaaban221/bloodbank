@@ -1,7 +1,4 @@
 <?php
-use App\Core\Request;
-use App\Models\Patient;
-use App\Models\PatientRequest;
 
 $conect = new DbSql();
 if (!$conect) {

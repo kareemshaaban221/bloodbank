@@ -43,4 +43,13 @@ class Request {
         else
             return isset($_REQUEST[$key]) ? $_REQUEST[$key] : null;
     }
+
+    public static function set($key, $value, $method = null) {
+        if ($method == 'get')
+            $_GET[$key] = $value;
+        else if ($method == 'post')
+            $_POST[$key] = $value;
+        else
+            $_REQUEST[$key] = $value;
+    }
 }

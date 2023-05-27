@@ -1,10 +1,7 @@
 <?php
 use App\Core\Auth;
 use App\Core\Request;
-use App\Models\Donor;
-use App\Models\Patient;
-use App\Models\PatientRequest;
-if ($_SERVER['REQUEST_METHOD'] === "GET") {
+if (Request::method() == "get") {
     $conect = new DbSql();
     if (!$conect) {
         echo mysqli_connect_error();

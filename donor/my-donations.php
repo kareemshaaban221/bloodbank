@@ -57,10 +57,10 @@ include 'layouts/components/header-parts/header2.php';
                                         $hospital = $donor_request['hospital'];
                                         ?>
                                         <td>
-                                            <?php echo $blood ?>
+                                            <?= $blood ?>
                                         </td>
-                                        <td><?php echo $date ?></td>
-                                        <td><?php echo $hospital ?></td>
+                                        <td><?= date("F jS, Y", strtotime($date)); ?></td>
+                                        <td><?= $hospital ?></td>
                                         <td><span class="badge badge-success">accepted</span></td>
                                 </tr>
                                     <?php
@@ -71,7 +71,7 @@ include 'layouts/components/header-parts/header2.php';
                                         $blood = $donor_request['blood_type'];
                                         ?>
                                         <td>
-                                            <?php echo $blood ?>
+                                            <?= $blood ?>
                                         </td>
                                         <td>--</td>
                                         <td>--</td>
@@ -85,7 +85,7 @@ include 'layouts/components/header-parts/header2.php';
                                         $blood = $donor_request['blood_type'];
                                         ?>
                                         <td>
-                                            <?php echo $blood ?>
+                                            <?= $blood ?>
                                         </td>
                                         <td>--</td>
                                         <td>--</td>

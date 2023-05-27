@@ -42,12 +42,12 @@ class Router {
             if (array_key_exists($route, $this->routes['get']))
                 return $this->routes['get'][$route];
             else
-                throw new \Exception('Route not found');
+                return '/not_found.php';
         } else if ($method == 'post') {
             if (array_key_exists($route, $this->routes['post']))
                 return $this->routes['post'][$route];
             else
-                throw new \Exception('Route not found');
+                return '/not_found.php';
         }
     }
 
