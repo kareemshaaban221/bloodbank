@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
         DB::table('admins')->delete();
         Admin::create([
             'name'=>'Blood bank',
-            'email'=>'blood_bank@gmailcom',
+            'email'=>'blood_bank@gmail.com',
             'password'=>crypt('12345678',PASSWORD_DEFAULT),
         ]);
     }
