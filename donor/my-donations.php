@@ -17,7 +17,7 @@ include 'layouts/components/header-parts/header2.php';
         <div class="card">
             <div class="card-body">
                 <div class="row justify-content-between">
-                    <h3 class="card-title ml-3 font-weight-bold">My Donations</h4>
+                    <h3 class="card-title ml-3 font-weight-bold">My Donations</h3>
                         <select onchange="filter(this)" class="mb-2 mr-3">
                             <option value="">--</option>
                             <option value="">A-</option>

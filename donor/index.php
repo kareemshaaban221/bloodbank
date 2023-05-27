@@ -77,7 +77,7 @@ include 'layouts/components/header-parts/header2.php';
                                     <td> <?= $patient->name ?> </td>
                                     <td> <?= $patient_request->blood_type ?> </td>
                                     <td>
-                                        <a href='request_store?blood=<?= $patient_request->blood_type ?>'
+                                        <a href='request_store?blood=<?= urlencode($patient_request->blood_type) ?>'
                                             onclick="return confirm('Are u sure u want to send donnation request?')"
                                             class='btn btn-danger'><i class='fa fa-hand-holding-heart'></i>Donate?</a></td>
                                 </tr>
