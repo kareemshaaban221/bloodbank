@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $id=Request::get('id');
     $hospital=$_POST['hospital'];
     $date=$_POST['date'];
-    dd($date);
+    // dd($date);
     $conect->update('donor_requests',"status='accepted',hospital='$hospital',date='$date'","id=$id");
     header("location:home");
     exit;
