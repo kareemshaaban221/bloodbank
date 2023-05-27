@@ -1,11 +1,13 @@
 <?php
 
+use App\Core\Auth;
+
 $conect = new DbSql();
 if (!$conect) {
     echo mysqli_connect_error();
     exit;
 }
-$donor_requests = $conect->get('donor_requests');
+$donor_requests = $conect->get('donor_requests', 'id = ' . Auth::user()->id);
 
 include 'layouts/components/header-parts/nav.php';
 include 'layouts/components/header-parts/header.php';
