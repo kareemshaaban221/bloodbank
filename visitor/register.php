@@ -5,6 +5,8 @@ if (isset($_GET['arr'])) {
     $arr_error = explode(",", $_GET['arr']);
 }
 
+// dd($arr_error);
+
 include 'layouts/components/header-parts/nav.php';
 ?>
 
@@ -12,7 +14,7 @@ include 'layouts/components/header-parts/nav.php';
 <section id="login" class="mt-3">
     <div class="container">
         <h1 class="text-center font-weight-bold">Create Account</h1>
-        <form method="post" action="../backend/insert.php" class="w-75 m-auto">
+        <form method="post" action="register" class="w-75 m-auto">
             <div class="row">
                 <div class="form-group col">
                     <label for="fname">First Name</label>
@@ -78,9 +80,14 @@ include 'layouts/components/header-parts/nav.php';
             <div class="form-group">
                 <label for="blood">Blood Type</label>
                 <select id="blood" name="blood" class="form-control">
-                    <option value="A">A</option>
-                    <option value="AB">AB</option>
+                    <option value="A-">A-</option>
+                    <option value="A+">A+</option>
+                    <option value="B-">B-</option>
                     <option value="B+">B+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="O-">O-</option>
+                    <option value="O+">O+</option>
                 </select>
                 <p class="text-danger">
                     <?php if (in_array('blood', $arr_error)) {

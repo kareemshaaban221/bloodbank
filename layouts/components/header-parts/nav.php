@@ -1,3 +1,7 @@
+<?php
+    use App\Core\Auth;
+?>
+
 <!-- Navbar 2 Start -->
 <section id="Nav2" class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,9 +14,16 @@
                 </li>
 
             </ul>
-            <button class="btn signup" onclick="window.location.href = 'register';">New Account</button>
-            <button class="btn btn-danger" onclick="window.location.href = 'login';"
-                style="width: 200px;">Login</button>
+
+            <?php if (Auth::check()): ?>
+                <button class="btn btn-danger" onclick="window.location.href = 'profile';"
+                    style="width: 200px;"><i class="fa fa-user"></i> Profile</button>
+                <button class="btn signup" onclick="window.location.href = 'logout';">Logout <i class="fa fa-sign-out-alt"></i></button>
+            <?php else: ?>
+                <button class="btn signup" onclick="window.location.href = 'register';">New Account</button>
+                <button class="btn btn-danger" onclick="window.location.href = 'login';"
+                    style="width: 200px;">Login</button>
+            <?php endif; ?>
         </div>
     </nav>
 </section>

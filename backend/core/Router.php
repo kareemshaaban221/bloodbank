@@ -5,14 +5,38 @@ namespace App\Core;
 class Router {
     public $routes = [];
 
-    public function get(string $route, string $path) {
-        $this->routes['get'][$route] = $path;
+    /**
+     * * get - set a GET request route
+     * * that pointer to an action php file
+     *
+     * @param string $route - desired route
+     * @param string $action - php action file
+     * @return void
+     */
+    public function get(string $route, string $action) {
+        $this->routes['get'][$route] = $action;
     }
 
-    public function post(string $route, string $path) {
-        $this->routes['post'][$route] = $path;
+    /**
+     * * post - set a POST request route
+     * * that pointer to an action php file
+     *
+     * @param string $route - desired route
+     * @param string $action - php action file
+     * @return void
+     */
+    public function post(string $route, string $action) {
+        $this->routes['post'][$route] = $action;
     }
 
+    /**
+     * * handler - get the action that associated with
+     * * the route given the method of this route
+     *
+     * @param string $route - desired route
+     * @param string $method - desired route method
+     * @return null|string
+     */
     public function handler(string $route, string $method) {
         if (strtolower($method) == 'get') {
             if (array_key_exists($route, $this->routes['get']))
