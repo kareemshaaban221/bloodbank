@@ -18,6 +18,20 @@
                         <a class="nav-link" href="my_donations"><i class="fa fa-list"></i> My Donations</a>
                     </li>
                 <?php endif; ?>
+                <?php if (Auth::check() && Auth::user_type() == 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="patients"><i class="fa fa-list"></i> Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="donors"><i class="fa fa-list"></i> Donors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="patient_requests"><i class="fa fa-list"></i> Patient Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_donations"><i class="fa fa-list"></i> My Donations</a>
+                    </li>
+                    <?php endif; ?>
             </ul>
 
             <?php if (Auth::check()): ?>

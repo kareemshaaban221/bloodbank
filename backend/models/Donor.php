@@ -6,7 +6,7 @@ use App\Core\Request;
 class Donor extends Model {
     private $donor;
     private $conect;
-
+    
     public function prepare($conect) {
         $donor = new Donor;
         $donor->fname = $conect->escapeString(Request::get('fname'));

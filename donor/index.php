@@ -1,4 +1,5 @@
 <?php
+use App\Core\Request;
 use App\Models\Patient;
 use App\Models\PatientRequest;
 
@@ -13,6 +14,24 @@ include 'layouts/components/header-parts/nav.php';
 include 'layouts/components/header-parts/header.php';
 include 'layouts/components/header-parts/header2.php';
 ?>
+
+<?php if (Request::get('massage')): ?>
+    <div class='alert alert-success alert-dismissible text-center' style="position: fixed; bottom: 5px; right: 5px; z-index: 99999">
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+        <strong>
+            <?= Request::get('massage') ?>
+        </strong>
+    </div>
+<?php endif; ?>
+
+<?php if (Request::get('dublicat')): ?>
+    <div class='alert alert-danger alert-dismissible text-center' style="position: fixed; bottom: 5px; right: 5px; z-index: 99999">
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+        <strong>
+            <?= Request::get('dublicat') ?>
+        </strong>
+    </div>
+<?php endif; ?>
 
 
 <!-- * for donnor -->
@@ -57,7 +76,8 @@ include 'layouts/components/header-parts/header2.php';
                                 <tr>
                                     <td> <?= $patient->name ?> </td>
                                     <td> <?= $patient_request->blood_type ?> </td>
-                                    <td><a href='request_store?blood=<?= $patient_request->blood_type ?>'
+                                    <td>
+                                        <a href='request_store?blood=<?= $patient_request->blood_type ?>'
                                             onclick="return confirm('Are u sure u want to send donnation request?')"
                                             class='btn btn-danger'><i class='fa fa-hand-holding-heart'></i>Donate?</a></td>
                                 </tr>

@@ -14,6 +14,14 @@ use App\Core\Request;
         </strong>
     </div>
 <?php endif; ?>
+<?php if (Request::get('dublicat')): ?>
+    <div class='alert alert-danger alert-dismissible text-center' style="position: fixed; bottom: 5px; right: 5px; z-index: 99999">
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+        <strong>
+            <?= Request::get('dublicat') ?>
+        </strong>
+    </div>
+<?php endif; ?>
 
 <!-- * for patient -->
 <!-- Login Start -->

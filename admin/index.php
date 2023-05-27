@@ -1,63 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+use App\Core\Request;
+use App\Models\Patient;
+use App\Models\PatientRequest;
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+$conect = new DbSql();
+if (!$conect) {
+    echo mysqli_connect_error();
+    exit;
+}
 
-
-    <!-- website font  -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-
-    <title>Blood Bank</title>
-</head>
-<body>
-    <!-- Navbar 2 Start -->
-    <section id="Nav2" class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img src="../imgs/logo.png" width="7%">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <!-- TODO for all -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
-                    </li>
-                    <!-- TODO for donor -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="patient.php"><i class="fa fa-users"></i> Patients</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="donor.php"><i class="fa fa-hand-holding-heart"></i> Donners</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="patient_request.php"><i class="fa fa-list"></i> Patient requests</a>
-                    </li>
-                    
-                </ul>
-                <button class="btn signup" onclick="window.location.href = '../visitor/index.php';">Logout <i class="fa fa-sign-out-alt"></i></button>
-            </div>
-        </nav>
-    </section>
-    <!-- Navbar 2 End -->
-
-    <div style="height: 110px;"></div>
-
-    <!-- Header Start -->
-    <section id="header">
-        <div class="container">
-     </div>
-    </section>
-
-
-
+include 'layouts/components/header-parts/nav.php';
+include 'layouts/components/header-parts/header.php';
+include 'layouts/components/header-parts/header2.php';
+?>
     <div class="row justify-content-around mt-5 mb-5" id="reqs">
         <div class="col-lg-8 grid-margin stretch-card">
             <div class="card">
@@ -168,23 +123,3 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer Start -->
-    <section class="bg-dark text-light p-3 text-center">
-        <div class="container">
-            <h5>© Designed By Blood Bank Team</h5>
-        </div>
-    </section>
-    <!-- Footer End -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script type="text/javascript" src="../js/swiper.min.js"></script>
-    <script type="text/javascript" src="../js/wow.min.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
-</body>
-
-</html>
