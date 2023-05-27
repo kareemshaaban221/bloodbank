@@ -57,32 +57,41 @@ if (!$conect) {
 
 if (Request::get('type') == 'patient') {
 
-    $model = new Patient;
-    $patient = $model->prepare($conect);
-    $querry = $model->save();
-    $patient = $model->get();
-    $patient->type = 'patient';
+    try {
+        $model = new Patient;
+        $patient = $model->prepare($conect);
+        $querry = $model->save();
+        $patient = $model->get();
+        $patient->type = 'patient';
 
-    if ($querry) {
-        Auth::login($patient);
-        // dd(Auth::user());
-        header("location:home");
+        if ($querry) {
+            Auth::login($patient);
+            // dd(Auth::user());
+            header("location:home");
+            exit;
+        }
+    } catch (\Throwable $th) {
+        header("location:register?error=" . 'Something went wrong, email may be duplicated!');
         exit;
     }
 
 } elseif (Request::get('type') == 'donor') {
 
-    $model = new Donor;
-    $donor = $model->prepare($conect);
-    $querry = $model->save();
-    $donor = $model->get();
-    $donor->type = 'donor';
+    try {
+        $model = new Donor;
+        $donor = $model->prepare($conect);
+        $querry = $model->save();
+        $donor = $model->get();
+        $donor->type = 'donor';
 
-    if ($querry) {
-        Auth::login($donor);
-        header("location:home");
+        if ($querry) {
+            Auth::login($donor);
+            header("location:home");
+            exit;
+        }
+    } catch (\Throwable $th) {
+        header("location:register?error=" . 'Something went wrong, email may be duplicated!');
         exit;
     }
-
 }
 ?>

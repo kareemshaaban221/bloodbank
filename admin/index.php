@@ -57,8 +57,10 @@ include 'layouts/components/header-parts/header2.php';
                                 <tr>
                                     <th>#</th>
                                     <th>Blood Type</th>
-                                    <td>Date</td>
-                                    <td>Hospital</td>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>Hospital</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -68,6 +70,12 @@ include 'layouts/components/header-parts/header2.php';
                             while ($donor_request = mysqli_fetch_assoc($donor_requests)) { ?>
                                 <tr>
                                     <?php
+                                    $res = $conect->get('donors', 'id = '. $donor_request['donor_id']);
+                                    if ($row = mysqli_fetch_assoc($res)) {
+                                        $email = $row['email'];
+                                        $name = $row['name'];
+                                    }
+
                                     ++$i;
                                     $id=$donor_request['id'];
                                     echo "<td>$i</td>"
@@ -76,9 +84,9 @@ include 'layouts/components/header-parts/header2.php';
                                     if ($donor_request['status'] == 'pending') {
                                         $blood = $donor_request['blood_type'];
                                         ?>
-                                        <td>
-                                            <?= $blood ?>
-                                        </td>
+                                        <td><?= $blood ?></td>
+                                        <td><?= $name ?></td>
+                                        <td><?= $email ?></td>
                                         <td>--</td>
                                         <td>--</td>
                                         <td>
@@ -88,6 +96,7 @@ include 'layouts/components/header-parts/header2.php';
                                         <a href='cancel?id=<?= $id ?>' title="reject" onclick="return confirm('Are you sure you want to reject this request?')"><i class="fa fa-times text-danger"></i></a>
                                     </td>
                                 </tr>
+                                <tr>
                                     <?php
                                     }
                                     ?>
@@ -95,13 +104,14 @@ include 'layouts/components/header-parts/header2.php';
                                     if ($donor_request['status'] == 'rejected') {
                                         $blood = $donor_request['blood_type'];
                                         ?>
-                                        <td>
-                                            <?= $blood ?>
-                                        </td>
+                                        <td><?= $blood ?></td>
+                                        <td><?= $name ?></td>
+                                        <td><?= $email ?></td>
                                         <td>--</td>
                                         <td>--</td>
                                         <td><span class="badge badge-danger">rejected</span></td>
                                 </tr>
+                                <tr>
                                     <?php
                                     }
                                     ?>
@@ -111,9 +121,9 @@ include 'layouts/components/header-parts/header2.php';
                                         $date = $donor_request['date'];
                                         $hospital = $donor_request['hospital'];
                                         ?>
-                                        <td>
-                                            <?= $blood ?>
-                                        </td>
+                                        <td><?= $blood ?></td>
+                                        <td><?= $name ?></td>
+                                        <td><?= $email ?></td>
                                         <td><?= date("F jS, Y", strtotime($date)); ?></td>
                                         <td><?= $hospital ?></td>
                                         <td><span class="badge badge-success">accepted</span></td>

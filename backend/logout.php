@@ -1,6 +1,9 @@
 <?php
+
+use App\Core\Session;
+
 session_start();
-$_SESSION=[];
+Session::clear();
 session_destroy();
 header("location:home");
 exit;

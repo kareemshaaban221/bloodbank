@@ -10,6 +10,8 @@ if (Request::get('arr', method:'get')) {
 // dd($arr_error);
 
 include 'layouts/components/header-parts/nav.php';
+include 'layouts/components/messages/error.php';
+include 'layouts/components/messages/success.php';
 ?>
 
 <!-- Login Start -->
