@@ -134,11 +134,6 @@ include 'layouts/components/header-parts/nav.php';
                 </p>
             </div>
 
-            <div class="form-group">
-                <label for="image">Profile Image</label>
-                <input id="image" name="image" type="file" class="form-control-file">
-            </div>
-
             <button type="submit" class="btn btn-danger p-1 m-0">Register</button>
         </form>
     </div>
