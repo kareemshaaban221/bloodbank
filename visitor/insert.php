@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Auth;
 use App\Core\Request;
 use App\Core\Session;
 use App\Models\Donor;
@@ -57,12 +58,14 @@ if (!$conect) {
 if (Request::get('type') == 'patient') {
 
     $model = new Patient;
-    $model->prepare($conect);
+    $patient = $model->prepare($conect);
     $querry = $model->save();
+    $patient = $model->get();
+    $patient->type = 'patient';
 
     if ($querry) {
-        Session::set('user_type', 'patient');
-        Session::set('user', $model->patient);
+        Auth::login($patient);
+        // dd(Auth::user());
         header("location:home");
         exit;
     }
@@ -70,12 +73,13 @@ if (Request::get('type') == 'patient') {
 } elseif (Request::get('type') == 'donor') {
 
     $model = new Donor;
-    $model->prepare($conect);
+    $donor = $model->prepare($conect);
     $querry = $model->save();
+    $donor = $model->get();
+    $donor->type = 'donor';
 
     if ($querry) {
-        Session::set('user_type', 'donor');
-        Session::set('user', $model->donor);
+        Auth::login($donor);
         header("location:home");
         exit;
     }

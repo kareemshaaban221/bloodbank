@@ -38,4 +38,19 @@ class Patient extends Model {
         else
             return null;
     }
+
+    public function get() {
+        if (isset($this->conect)) {
+            $result = $this->conect->get('patients', "email = '{$this->patient->email}'");
+            if ($row = mysqli_fetch_assoc($result)) {
+                $this->patient = new Patient;
+                $this->patient->setAllMembers($row);
+                return $this->patient;
+            } else {
+                throw new \Exception('Does not fetch!');
+            }
+        }
+        else
+            return null;
+    }
 }

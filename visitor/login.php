@@ -5,7 +5,6 @@ use App\Models\Admin;
 use App\Models\Donor;
 use App\Models\Patient;
 
-session_start();
 if (Request::method() === "post") {
     $conect = new DbSql();
     if (!$conect) {
@@ -14,7 +13,7 @@ if (Request::method() === "post") {
 
     $email = $conect->escapeString(Request::get('email'));
     $password = $conect->escapeString(Request::get('password'));
-    // $password = crypt($password, PASSWORD_DEFAULT);
+    $password = crypt($password, PASSWORD_DEFAULT);
 
     if (Request::get('type') && Request::get('type') == 'patient') {
         $result = $conect->get('patients', "email='$email' and password='$password' ");

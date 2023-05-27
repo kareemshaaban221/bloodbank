@@ -18,7 +18,7 @@ class DbSql {
         return $this->connection;
     }
     public function insertInto($tableName,$names){
-            return $this->connection->query("INSERT INTO $tableName SET $names");
+        return $this->connection->query("INSERT INTO $tableName SET $names");
     }
     public function get($tableName,$condtion=1){
         return $this->connection->query("SELECT * FROM $tableName WHERE $condtion");

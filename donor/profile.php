@@ -16,7 +16,8 @@ include 'layouts/components/header-parts/header2.php';
    <section id="login" class="mt-3">
         <div class="container">
             <h1 class="text-center font-weight-bold">Profile</h1>
-            <img src="../imgs/profile.png" alt="">
+            <img src="../imgs/prof
+use App\Core\Request;ile.png" alt="">
             <div class="table-responsive">
                 <table class="table w-50 m-auto">
                     <tbody>
