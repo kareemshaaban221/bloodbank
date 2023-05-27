@@ -10,9 +10,14 @@
             <ul class="navbar-nav mr-auto">
                 <!-- TODO for all -->
                 <li class="nav-item">
-                    <a class="nav-link selected" href="index.php"><i class="fa fa-home"></i> Home</a>
+                    <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
                 </li>
 
+                <?php if (Auth::check() && Auth::user_type() == 'donor'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_donations"><i class="fa fa-list"></i> My Donations</a>
+                    </li>
+                <?php endif; ?>
             </ul>
 
             <?php if (Auth::check()): ?>

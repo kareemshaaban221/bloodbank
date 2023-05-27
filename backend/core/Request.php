@@ -25,6 +25,22 @@ class Request {
      * @return string
      */
     public static function method() {
-        return $_SERVER['REQUEST_METHOD'];
+        return strtolower($_SERVER['REQUEST_METHOD']);
+    }
+
+    /**
+     * get - get a parameter from request
+     *
+     * @param $key - key of request
+     * @param $method - method [GET, POST]
+     * @return string
+     */
+    public static function get($key, $method = null) {
+        if ($method == 'get')
+            return isset($_GET[$key]) ? $_GET[$key] : null;
+        else if ($method == 'post')
+            return isset($_POST[$key]) ? $_POST[$key] : null;
+        else
+            return isset($_REQUEST[$key]) ? $_REQUEST[$key] : null;
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
+use App\Core\Auth;
 use App\Core\Request;
+use App\Core\Session;
 
 function asset(string $filename) {
     return 'assets/' . $filename;
@@ -12,12 +14,15 @@ function dd(mixed $var) {
 }
 
 function init_session_user_type() {
-    if (!isset($_SESSION['user_type']))
-        $_SESSION['user_type'] = 'visitor';
+    if (!Session::has('user_type'))
+        Session::set('user_type', 'visitor');
 }
 
 function set_page_content($handler) {
-    $_SESSION['content'] = $_SESSION['user_type'] . $handler;
+    Session::set(
+        'content',
+        Session::get('user_type') . $handler
+    );
 }
 
 function isLogout() {
@@ -28,5 +33,5 @@ function isLogout() {
 }
 
 function auth() {
-    return $_SESSION['user'];
+    return Auth::user();
 }

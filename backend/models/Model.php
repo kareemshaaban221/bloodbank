@@ -19,7 +19,7 @@ class Model {
     public function setAllMembers($row) {
 
         foreach ($row as $key => $value) {
-            $this->members[$key] = $value;
+            $this->$key = $value;
         }
 
         // $_SESSION['patient_id'] = $row['id'];

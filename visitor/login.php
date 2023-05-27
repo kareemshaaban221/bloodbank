@@ -1,57 +1,67 @@
 <?php
-use App\Core\Session;
+use App\Core\Auth;
+use App\Core\Request;
 use App\Models\Admin;
 use App\Models\Donor;
 use App\Models\Patient;
 
-require 'backend/DB.php';
 session_start();
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if (Request::method() === "post") {
     $conect = new DbSql();
     if (!$conect) {
         echo mysqli_connect_error();
     }
-    $email = $conect->escapeString($_POST['email']);
-    $password = $conect->escapeString($_POST['password']);
+
+    $email = $conect->escapeString(Request::get('email'));
+    $password = $conect->escapeString(Request::get('password'));
     $password = crypt($password, PASSWORD_DEFAULT);
-    if ($_POST['type'] == 'patient') {
+
+    if (Request::get('type') && Request::get('type') == 'patient') {
         $result = $conect->get('patients', "email='$email' and password='$password' ");
         if ($row = mysqli_fetch_assoc($result)) {
-            $patient = new Patient;
-            $patient->setAllMembers($row);
-            Session::set('user', $patient);
-            Session::set('user_type', 'patient');
+
+            $user = new Patient;
+            $user->setAllMembers($row);
+            $user->type = 'patient';
+
+            Auth::login($user);
             header("location:home");
             exit;
+
         } else {
             $error = "invalid email or Password";
         }
         mysqli_free_result($result);
     }
-    else if ($_POST['type'] == 'donor') {
+    else if (Request::get('type') && Request::get('type') == 'donor') {
         $result = $conect->get('donors', "email='$email' and password='$password' ");
         if ($row = mysqli_fetch_assoc($result)) {
-            $donor = new Donor;
-            $donor->setAllMembers($row);
-            Session::set('user', $donor);
-            Session::set('user_type', 'donor');
+
+            $user = new Donor;
+            $user->setAllMembers($row);
+            $user->type = 'donor';
+
+            Auth::login($user);
             header("location:home");
             exit;
+
         } else {
             $error = "invalid email or Password";
         }
         mysqli_free_result($result);
     }
-    else if ($_POST['type'] == 'admin') {
-        $password = $conect->escapeString($_POST['password']);
+    else if (Request::get('type') && Request::get('type') == 'admin') {
         $result = $conect->get('admins', "email='$email' and password='$password' ");
         if ($row = mysqli_fetch_assoc($result)) {
-            $admin = new Admin;
-            $admin->setAllMembers($row);
-            Session::set('user', $admin);
-            Session::set('user_type', 'admin');
+
+            $user = new Admin;
+            $user->setAllMembers($row);
+            $user->type = 'admin';
+            
+            Auth::login($user);
             header("location:home");
             exit;
+
         } else {
             $error = "invalid email or Password";
         }

@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+    use App\Core\Session;
 
 ?>
 
@@ -8,16 +8,16 @@
 <html lang="en">
 
 <head>
-    <?php include 'components/head.php'; ?>
+    <?php include 'layouts/components/head.php'; ?>
 </head>
 
 <body>
 
-<?php include "{$_SESSION['content']}"; ?>
+<?php include Session::get('content'); ?>
 
 <?php
-    include 'components/footer.php';
-    include 'components/scripts.php';
+    include 'layouts/components/footer.php';
+    include 'layouts/components/scripts.php';
 ?>
 
 </body>

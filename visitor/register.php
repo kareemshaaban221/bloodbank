@@ -1,8 +1,10 @@
 <?php
-require 'backend/DB.php';
+
+use App\Core\Request;
+
 $arr_error = [];
-if (isset($_GET['arr'])) {
-    $arr_error = explode(",", $_GET['arr']);
+if (Request::get('arr', method:'get')) {
+    $arr_error = explode(",", Request::get('arr', method:'get'));
 }
 
 // dd($arr_error);
