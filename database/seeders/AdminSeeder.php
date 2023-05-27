@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
         Admin::create([
             'name'=>'Blood bank',
             'email'=>'blood_bank@gmailcom',
-            'password'=>Hash::make('12345678'),
+            'password'=>crypt('12345678',PASSWORD_DEFAULT),
         ]);
     }
 }
